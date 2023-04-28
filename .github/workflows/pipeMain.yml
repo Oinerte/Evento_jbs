@@ -32,7 +32,7 @@ jobs:
       run: javac -cp src ./src/Main.java
       
     - name: Compilar Teste com o Java
-      run: javac -cp src ./src/Main.java
+      run: javac -cp src ./src/Teste.java
       
     - name: Executando o Teste
       run: |
