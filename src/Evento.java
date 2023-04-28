@@ -41,6 +41,7 @@ public class Evento {
             novaLista[i] = this.participantes[i];
         }
         novaLista[novaLista.length-1] = participante;
+        this.participantes = novaLista;
     }
 
     public Date getData() {
