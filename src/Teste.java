@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Date;
 
 public class Teste {
@@ -35,33 +36,56 @@ public class Teste {
             System.out.println("Método setData_nasc(): Falhou");
         }
 
-        //Teste do método adicionaParticipante()
-        Participante p1 = new Participante("João", "123.456.789-00", 1111, new Date());
-        Participante p2 = new Participante("Maria", "987.654.321-00", 2222, new Date());
-        Evento evento = new Evento(new Date(), "manhã");
-        evento.adicionaParticipante(p1);
-        evento.adicionaParticipante(p2);
-        Participante[] participantes = evento.getParticipantes();
-        System.out.println("Participantes do evento:");
-        for (Participante p3 : participantes) {
-            System.out.println(p3.getNome());
+
+        // Criando participantes
+        Participante p1 = new Participante("Fulano", "123456789", 987654321, new Date());
+        Participante p2 = new Participante("Ciclano", "2345678", 2345678, new Date());
+
+        // Criando evento
+        Evento e = new Evento(new Date(), "Manhã");
+
+        // Testando métodos
+        // getData() e setData()
+        Date data = new Date();
+        e.setData(data);
+        if (e.getData().equals(data)) {
+            System.out.println("getData() e setData(): OK");
+        } else {
+            System.out.println("getData() e setData(): Falhou");
         }
 
-        //Teste do método removeParticipante()
-        evento.removeParticipante(p1);
-        participantes = evento.getParticipantes();
-        System.out.println("Participantes do evento após a remoção:");
-        for (Participante p4 : participantes) {
-            System.out.println(p4.getNome());
+        // getPeríodo() e setPeríodo()
+        String periodo = "Tarde";
+        e.setPeríodo(periodo);
+        if (e.getPeríodo().equals(periodo)) {
+            System.out.println("getPeríodo() e setPeríodo(): OK");
+        } else {
+            System.out.println("getPeríodo() e setPeríodo(): Falhou");
         }
 
-        //Teste do método setData()
-        Date novaData = new Date(2023, 4, 30);
-        evento.setData(novaData);
-        System.out.println("Nova data do evento: " + evento.getData());
+        // getParticipantes()
+        if (Arrays.equals(e.getParticipantes(), null)) {
+            System.out.println("getParticipantes(): OK");
+        } else {
+            System.out.println("getParticipantes(): Falhou");
+        }
 
-        //Teste do método setPeríodo()
-        evento.setPeríodo("tarde");
-        System.out.println("Novo período do evento: " + evento.getPeríodo());
+        // adicionaParticipante() e getParticipantes()
+        e.adicionaParticipante(p1);
+        Participante[] participantes = e.getParticipantes();
+        if (participantes.length == 1 && participantes[0].equals(p1)) {
+            System.out.println("adicionaParticipante() e getParticipantes(): OK");
+        } else {
+            System.out.println("adicionaParticipante() e getParticipantes(): Falhou");
+        }
+
+        // removeParticipante() e getParticipantes()
+        e.removeParticipante(p1);
+        participantes = e.getParticipantes();
+        if (participantes == null || participantes.length == 0) {
+            System.out.println("removeParticipante() e getParticipantes(): OK");
+        } else {
+            System.out.println("removeParticipante() e getParticipantes(): Falhou");
+        }
     }
 }
