@@ -37,6 +37,10 @@ public class Participante {
         this.data_nasc = data_nasc;
     }
 
+    public Date getData_nasc() {
+        return data_nasc;
+    }
+
     @Override
     public String toString() {
         return "Participante{" +
