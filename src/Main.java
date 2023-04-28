@@ -38,7 +38,6 @@ public class Main {
             evento.adicionaParticipante(new Participante(nome, cpf, telefone, data_nasc));
         }
 
-
     }
 
 }
