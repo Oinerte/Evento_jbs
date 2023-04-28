@@ -9,6 +9,7 @@ public class Evento {
     public Evento(Date data, String período) {
         this.data = data;
         this.período = período;
+        this.participantes = new Participante[0];
     }
 
     public Participante[] getParticipantes() {
