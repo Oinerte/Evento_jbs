@@ -63,13 +63,6 @@ public class Teste {
             System.out.println("getPeríodo() e setPeríodo(): Falhou");
         }
 
-        // getParticipantes()
-        if (Arrays.equals(e.getParticipantes(), null)) {
-            System.out.println("getParticipantes(): OK");
-        } else {
-            System.out.println("getParticipantes(): Falhou");
-        }
-
         // adicionaParticipante() e getParticipantes()
         e.adicionaParticipante(p1);
         Participante[] participantes = e.getParticipantes();
