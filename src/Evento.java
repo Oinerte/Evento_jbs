@@ -31,6 +31,8 @@ public class Evento {
                     novaLista[i] = this.participantes[i];
                 }
             }
+
+            this.participantes = novaLista;
         }else{
             System.out.println("Participante não encontrado");
         }
