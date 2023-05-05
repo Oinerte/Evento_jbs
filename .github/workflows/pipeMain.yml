@@ -38,3 +38,14 @@ jobs:
       run: |
         cd src
         java Teste
+
+    - name: Check out code
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & push Docker image
+      with:
+          image: oinerte/evento_jbs_image
+          tags: 1.0, 1.1
+          registry: Docker.io
+          dockerfile: Dockerfile.ci
+          username: ${{ secrets.DOCKER_USUARIO_SECRETO }}
+          password: ${{ secrets.DOCKER_SENHA_SECRETA }}
