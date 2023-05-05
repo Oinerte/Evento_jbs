@@ -43,7 +43,11 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v6
     
   
-    - name: Build & push Docker image
+    - uses: actions/checkout@v3
+      name: Check out code
+      
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & push Docker image
       with:
           image: oinerte/evento_jbs_image
           tags: 1.0, 1.1
