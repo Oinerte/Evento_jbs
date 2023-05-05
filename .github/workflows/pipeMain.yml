@@ -45,7 +45,7 @@ jobs:
       with:
           image: oinerte/evento_jbs_image
           tags: 1.0, 1.1
-          registry: Docker.io
+          registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USUARIO_SECRETO }}
           password: ${{ secrets.DOCKER_SENHA_SECRETA }}
