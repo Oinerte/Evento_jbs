@@ -44,7 +44,7 @@ jobs:
       name: Build & push Docker image
       with:
           image: oinerte/evento_jbs_image
-          tags: 1.0, 1.1
+          tags: cat /proc/sys/kernel/random/uuid
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USUARIO_SECRETO }}
