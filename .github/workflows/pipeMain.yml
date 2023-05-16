@@ -39,12 +39,24 @@ jobs:
         cd src
         java Teste
 
+    - name: Retrieve metadata
+      id: metadata
+      uses: docker/metadata-action@e5622373a38e60fb6d795a4421e56882f2d7a681
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      with:
+        images: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}
+        tags: |
+          type=semver,pattern={{major}}.{{minor}}.{{patch}},value=${{ env.TAG }}
+          type=semver,pattern={{major}}.{{minor}},value=${{ env.TAG }}
+          type=semver,pattern={{major}},value=${{ env.TAG }}
+
       
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
           image: oinerte/evento_jbs_image
-          tags: cat /proc/sys/kernel/random/uuid
+          tags: ${{ steps.docker_meta.outputs.tags }}
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USUARIO_SECRETO }}
